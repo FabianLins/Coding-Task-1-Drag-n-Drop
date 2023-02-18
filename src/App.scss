@@ -20,15 +20,17 @@ $blue: rgb(55, 85, 125);
     gap: 5rem;
     margin: 0 auto;
     align-items: center;
-    //position: relative;
+    position: relative;
   }
 
   .red {
     background-color: $red;
+    border: 3px solid darken($red, 15)
   }
 
   .blue {
     background-color: $blue;
+    border: 3px solid darken($blue, 15)
   }
 
   .square {
@@ -47,5 +49,6 @@ $blue: rgb(55, 85, 125);
   .set {
     pointer-events: none;
     position: absolute;
+    transform: translateX(-50%);
   }
 }
