@@ -5,7 +5,11 @@ import './App.scss'
 function App() {
   const redSquare = useRef()
   const blueSquare = useRef()
+  const redCircle = useRef()
+  const blueCircle = useRef()
   const elements = useRef()
+  const [isRedCircleSet, setRedCircle] = useState(false)
+  const [isBlueCircleSet, setBlueCircle] = useState(false)
   const [currColor, setCurrColor] = useState("")
 
   const shapeColor = (event: any) => {
@@ -30,13 +34,21 @@ function App() {
     if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft) {
       if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop) {
         event.currentTarget.classList.add("set")
+        setRedCircle(true)
         event.currentTarget.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
+        if (isBlueCircleSet) {
+          blueCircle.current.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
+        }
       }
     }
     else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft) {
       if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
         event.currentTarget.classList.add("set")
+        setBlueCircle(true)
         event.currentTarget.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
+        if (isRedCircleSet) {
+          redCircle.current.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
+        }
       }
     }
   }
@@ -45,9 +57,9 @@ function App() {
     <div className="content">
       <div className="elements" ref={elements}>
         <div className="red square red square" ref={redSquare}></div>
+        <div className="red circle" ref={redCircle} draggable="true" onMouseDown={shapeColor} onDragEnd={dragItem}></div>
         <div className="blue square" ref={blueSquare}></div>
-        <div className="red circle" draggable="true" onMouseDown={shapeColor} onDragEnd={dragItem}></div>
-        <div className="blue circle" draggable="true" onMouseDown={shapeColor} onDragEnd={dragItem}></div>
+        <div className="blue circle" ref={blueCircle} draggable="true" onMouseDown={shapeColor} onDragEnd={dragItem}></div>
       </div>
     </div >
   )
