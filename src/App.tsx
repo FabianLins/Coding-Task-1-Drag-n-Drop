@@ -8,6 +8,7 @@ function App() {
   const redCircle = useRef()
   const blueCircle = useRef()
   const elements = useRef()
+  const content = useRef()
   const [offSetX, setOffsetX] = useState(0)
   const [offSetY, setOffsetY] = useState(0)
   const [isRedCircleSet, setRedCircle] = useState(false)
@@ -30,26 +31,19 @@ function App() {
     const shapeOffsetY = event.target.offsetTop
     const xOffset = xPosMouse - shapeOffsetX - elements.current.offsetLeft
     const yOffset = yPosMouse - shapeOffsetY - elements.current.offsetTop
-    console.log(`xOffset: ${xOffset}`)
-    console.log(`yOffset: ${yOffset}`)
     setOffsetX(xOffset)
     setOffsetY(yOffset)
-
   }
 
   const dragItem = (event: any) => {
     //clientX give the mouse position but it is heavily variable since it depends on the exact position you drag the circle
     const xPos = event.clientX - offSetX * 2
-    alert(xPos)
-    const yPos = event.clientY
-    alert(yPos)
+    const yPos = event.clientY - offSetY * 2
     const squareWidth = redSquare.current.offsetWidth
     const parentLeft = elements.current.offsetLeft
-    const parentTop = elements.current.offsetTop
+    const parentTop = elements.current.offsetTop - content.current.offsetTop
     console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft}`)
     console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
-    //alert(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
-    //alert(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft}`)
     if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft) {
       //alert(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
       if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop) {
@@ -74,7 +68,7 @@ function App() {
   }
 
   return (
-    <div className="content">
+    <div className="content" ref={content}>
       <div className="elements" ref={elements}>
         <div className="red square red square" ref={redSquare}></div>
         <div className="red circle" ref={redCircle} draggable="true" onMouseDown={shapeColor} onDragEnd={dragItem}></div>
@@ -85,4 +79,4 @@ function App() {
   )
 }
 
-export default App
+export default App 
