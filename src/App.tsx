@@ -55,8 +55,8 @@ function App() {
         }
       }
     }
-    else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft - 10 + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft + 10) {
-      if (yPos >= blueSquare.current.offsetTop + parentTop - 10 && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop + 10) {
+    else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft) {
+      if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
         event.currentTarget.classList.add("set")
         setBlueCircle(true)
         event.currentTarget.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
