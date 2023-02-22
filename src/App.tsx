@@ -16,7 +16,7 @@ function App() {
   const [currColor, setCurrColor] = useState("")
 
   const shapeColor = (event: React.MouseEvent) => {
-    if (elements.current) {
+    if (elements.current && event.target) {
       //console.log(event.target.classList)
       (event.target as HTMLElement).classList.forEach((element: string) => {
         if (element === "red") {
