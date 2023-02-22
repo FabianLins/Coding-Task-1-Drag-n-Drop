@@ -26,19 +26,11 @@ $blue: rgb(55, 85, 125);
   .red {
     background-color: $red;
     border: 3px solid darken($red, 15);
-
-    &.circle {
-      //margin-top: 10rem
-    }
   }
 
   .blue {
     background-color: $blue;
     border: 3px solid darken($blue, 15);
-
-    &.circle {
-      //margin-top: -10rem
-    }
   }
 
   .square {

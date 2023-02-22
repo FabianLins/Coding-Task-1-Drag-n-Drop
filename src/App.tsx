@@ -36,7 +36,6 @@ function App() {
   }
 
   const dragItem = (event: any) => {
-    //clientX give the mouse position but it is heavily variable since it depends on the exact position you drag the circle
     const xPos = event.clientX - offSetX * 2
     const yPos = event.clientY - offSetY * 2
     const squareWidth = redSquare.current.offsetWidth
@@ -45,7 +44,6 @@ function App() {
     console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft}`)
     console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
     if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft) {
-      //alert(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
       if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop) {
         event.currentTarget.classList.add("set")
         setRedCircle(true)
