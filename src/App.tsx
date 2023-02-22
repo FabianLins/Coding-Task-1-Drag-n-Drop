@@ -4,11 +4,11 @@ import './App.scss'
 
 function App() {
   const redSquare = useRef<HTMLDivElement>(null)
-  const blueSquare = useRef<HTMLElement>(null)
-  const redCircle = useRef<HTMLElement>(null)
-  const blueCircle = useRef<HTMLElement>(null)
-  const elements = useRef<HTMLElement>(null)
-  const content = useRef<HTMLElement>(null)
+  const blueSquare = useRef<HTMLDivElement>(null)
+  const redCircle = useRef<HTMLDivElement>(null)
+  const blueCircle = useRef<HTMLDivElement>(null)
+  const elements = useRef<HTMLDivElement>(null)
+  const content = useRef<HTMLDivElement>(null)
   const [offSetX, setOffsetX] = useState(0)
   const [offSetY, setOffsetY] = useState(0)
   const [isRedCircleSet, setRedCircle] = useState(false)
