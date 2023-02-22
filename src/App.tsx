@@ -3,12 +3,12 @@ import reactLogo from './assets/react.svg'
 import './App.scss'
 
 function App() {
-  const redSquare = useRef<HTMLDivElement>()
-  const blueSquare = useRef<HTMLDivElement>()
-  const redCircle = useRef<HTMLDivElement>()
-  const blueCircle = useRef<HTMLDivElement>()
-  const elements = useRef<HTMLDivElement>()
-  const content = useRef<HTMLDivElement>()
+  const redSquare = useRef<HTMLElement>()
+  const blueSquare = useRef<HTMLElement>()
+  const redCircle = useRef<HTMLElement>()
+  const blueCircle = useRef<HTMLElement>()
+  const elements = useRef<HTMLElement>()
+  const content = useRef<HTMLElement>()
   const [offSetX, setOffsetX] = useState(0)
   const [offSetY, setOffsetY] = useState(0)
   const [isRedCircleSet, setRedCircle] = useState(false)
