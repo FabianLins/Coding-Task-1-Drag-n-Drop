@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.scss'
 
 function App() {
-  const redSquare = useRef<HTMLElement>(null)
+  const redSquare = useRef<HTMLDivElement>(null)
   const blueSquare = useRef<HTMLElement>(null)
   const redCircle = useRef<HTMLElement>(null)
   const blueCircle = useRef<HTMLElement>(null)
