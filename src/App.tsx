@@ -39,7 +39,7 @@ function App() {
   }
 
   const dragItem = (event: any) => {
-    if (redSquare.current && elements.current && content.current && blueCircle.current && redCircle.current) {
+    if (redSquare.current && elements.current && content.current && blueCircle.current && redCircle.current && blueSquare.current) {
       const xPos: number = event.clientX - offSetX * 2
       const yPos: number = event.clientY - offSetY * 2
       const squareWidth: number = redSquare.current.offsetWidth
@@ -57,8 +57,8 @@ function App() {
           }
         }
       }
-      else if (currColor == "blue" && xPos >= blueCircle.current.offsetLeft + parentLeft && xPos <= blueCircle.current.offsetLeft + squareWidth + parentLeft) {
-        if (yPos >= blueCircle.current.offsetTop + parentTop && yPos <= blueCircle.current.offsetTop + squareWidth + parentTop) {
+      else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft) {
+        if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
           event.currentTarget.classList.add("set")
           setBlueCircle(true)
           event.currentTarget.style.left = `${squareWidth / 2 + blueCircle.current.offsetLeft}px`
