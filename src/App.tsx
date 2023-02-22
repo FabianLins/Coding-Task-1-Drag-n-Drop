@@ -61,7 +61,7 @@ function App() {
         if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
           event.currentTarget.classList.add("set")
           setBlueCircle(true)
-          event.currentTarget.style.left = `${squareWidth / 2 + blueCircle.current.offsetLeft}px`
+          event.currentTarget.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
           if (isRedCircleSet) {
             redCircle.current.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
           }
