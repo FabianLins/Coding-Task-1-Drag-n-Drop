@@ -3,12 +3,12 @@ import reactLogo from './assets/react.svg'
 import './App.scss'
 
 function App() {
-  const redSquare = useRef<HTMLElement>()
-  const blueSquare = useRef<HTMLElement>()
-  const redCircle = useRef<HTMLElement>()
-  const blueCircle = useRef<HTMLElement>()
-  const elements = useRef<HTMLElement>()
-  const content = useRef<HTMLElement>()
+  const redSquare = useRef<HTMLDivElement>()
+  const blueSquare = useRef<HTMLDivElement>()
+  const redCircle = useRef<HTMLDivElement>()
+  const blueCircle = useRef<HTMLDivElement>()
+  const elements = useRef<HTMLDivElement>()
+  const content = useRef<HTMLDivElement>()
   const [offSetX, setOffsetX] = useState(0)
   const [offSetY, setOffsetY] = useState(0)
   const [isRedCircleSet, setRedCircle] = useState(false)
@@ -42,28 +42,28 @@ function App() {
     if (redSquare.current && elements.current && content.current && blueCircle.current && redCircle.current) {
       const xPos: number = event.clientX - offSetX * 2
       const yPos: number = event.clientY - offSetY * 2
-      const squareWidth: number = (redSquare.current as HTMLElement).offsetWidth
-      const parentLeft: number = (elements.current as HTMLElement).offsetLeft
-      const parentTop: number = (elements.current as HTMLElement).offsetTop - (content.current as HTMLElement).offsetTop
-      console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${(redSquare.current as HTMLElement).offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${(redSquare.current as HTMLElement).offsetLeft + squareWidth + parentLeft}`)
-      console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${(redSquare.current as HTMLElement).offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${(redSquare.current as HTMLElement).offsetTop + squareWidth + parentTop}`)
-      if (currColor == "red" && xPos >= (redSquare.current as HTMLElement).offsetLeft + parentLeft && xPos <= (redSquare.current as HTMLElement).offsetLeft + squareWidth + parentLeft) {
-        if (yPos >= (redSquare.current as HTMLElement).offsetTop + parentTop && yPos <= (redSquare.current as HTMLElement).offsetTop + squareWidth + parentTop) {
+      const squareWidth: number = redSquare.current.offsetWidth
+      const parentLeft: number = elements.current.offsetLeft
+      const parentTop: number = elements.current.offsetTop - (content.current as HTMLElement).offsetTop
+      console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft}`)
+      console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
+      if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft) {
+        if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop) {
           event.currentTarget.classList.add("set")
           setRedCircle(true)
-          event.currentTarget.style.left = `${squareWidth / 2 + (redSquare.current as HTMLElement).offsetLeft}px`
+          event.currentTarget.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
           if (isBlueCircleSet) {
-            (blueCircle.current as HTMLElement).style.left = `${squareWidth / 2 + (blueCircle.current as HTMLElement).offsetLeft}px`
+            blueCircle.current.style.left = `${squareWidth / 2 + blueCircle.current.offsetLeft}px`
           }
         }
       }
-      else if (currColor == "blue" && xPos >= (blueCircle.current as HTMLElement).offsetLeft + parentLeft && xPos <= (blueCircle.current as HTMLElement).offsetLeft + squareWidth + parentLeft) {
-        if (yPos >= (blueCircle.current as HTMLElement).offsetTop + parentTop && yPos <= (blueCircle.current as HTMLElement).offsetTop + squareWidth + parentTop) {
+      else if (currColor == "blue" && xPos >= blueCircle.current.offsetLeft + parentLeft && xPos <= blueCircle.current.offsetLeft + squareWidth + parentLeft) {
+        if (yPos >= blueCircle.current.offsetTop + parentTop && yPos <= blueCircle.current.offsetTop + squareWidth + parentTop) {
           event.currentTarget.classList.add("set")
           setBlueCircle(true)
-          event.currentTarget.style.left = `${squareWidth / 2 + (blueCircle.current as HTMLElement).offsetLeft}px`
+          event.currentTarget.style.left = `${squareWidth / 2 + blueCircle.current.offsetLeft}px`
           if (isRedCircleSet) {
-            (redCircle.current as HTMLElement).style.left = `${squareWidth / 2 + (redSquare.current as HTMLElement).offsetLeft}px`
+            redCircle.current.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
           }
         }
       }
