@@ -53,7 +53,7 @@ function App() {
           setRedCircle(true)
           event.currentTarget.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
           if (isBlueCircleSet) {
-            blueCircle.current.style.left = `${squareWidth / 2 + blueCircle.current.offsetLeft}px`
+            blueCircle.current.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
           }
         }
       }
