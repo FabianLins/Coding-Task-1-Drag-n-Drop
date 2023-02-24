@@ -48,7 +48,7 @@ function App() {
       const parentTop: number = elements.current.offsetTop
       //alert(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth): ${redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth}`)
       //alert(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop - circleWidth: ${redSquare.current.offsetTop + squareWidth + parentTop - circleWidth}`)
-      if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
+      if (currColor === "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
         if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop - circleWidth) {
           event.currentTarget.classList.add("set")
           setRedCircle(true)
@@ -58,7 +58,7 @@ function App() {
           }
         }
       }
-      else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
+      else if (currColor === "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
         if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
           event.currentTarget.classList.add("set")
           setBlueCircle(true)
