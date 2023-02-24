@@ -43,12 +43,13 @@ function App() {
       const xPos: number = event.clientX - offSetX
       const yPos: number = event.clientY - offSetY
       const squareWidth: number = redSquare.current.offsetWidth
+      const circleWidth: number = redCircle.current.offsetWidth
       const parentLeft: number = elements.current.offsetLeft
       const parentTop: number = elements.current.offsetTop - (content.current as HTMLElement).offsetTop
-      console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft}`)
-      console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop}`)
-      if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft) {
-        if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop) {
+      console.log(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft): ${redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth}`)
+      console.log(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop: ${redSquare.current.offsetTop + squareWidth + parentTop - circleWidth}`)
+      if (currColor == "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
+        if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop - circleWidth) {
           event.currentTarget.classList.add("set")
           setRedCircle(true)
           event.currentTarget.style.left = `${squareWidth / 2 + redSquare.current.offsetLeft}px`
@@ -58,7 +59,7 @@ function App() {
         }
       }
       else if (currColor == "blue" && xPos >= blueSquare.current.offsetLeft + parentLeft && xPos <= blueSquare.current.offsetLeft + squareWidth + parentLeft) {
-        if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop) {
+        if (yPos >= blueSquare.current.offsetTop + parentTop && yPos <= blueSquare.current.offsetTop + squareWidth + parentTop - circleWidth) {
           event.currentTarget.classList.add("set")
           setBlueCircle(true)
           event.currentTarget.style.left = `${squareWidth / 2 + blueSquare.current.offsetLeft}px`
