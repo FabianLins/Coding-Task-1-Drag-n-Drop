@@ -48,7 +48,7 @@ function App() {
       const parentTop: number = elements.current.offsetTop
       //alert(`xPos: ${xPos} >= (redSquare.current.offsetLeft + parentLeft): ${redSquare.current.offsetLeft + parentLeft} && xPos: ${xPos} <= (redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth): ${redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth}`)
       //alert(`yPos: ${yPos} >= redSquare.current.offsetTop + parentTop: ${redSquare.current.offsetTop + parentTop} && yPos <= redSquare.current.offsetTop + squareWidth + parentTop - circleWidth: ${redSquare.current.offsetTop + squareWidth + parentTop - circleWidth}`)
-      // You could minimize the if statements to one by using && but for testing purposes I keep it in two serpate ones for development
+      // You could minimize the if statements to one by using &&. But for testing purposes I keep it seperated in two single statements for development
       if (currColor === "red" && xPos >= redSquare.current.offsetLeft + parentLeft && xPos <= redSquare.current.offsetLeft + squareWidth + parentLeft - circleWidth) {
         if (yPos >= redSquare.current.offsetTop + parentTop && yPos <= redSquare.current.offsetTop + squareWidth + parentTop - circleWidth) {
           event.currentTarget.classList.add("set")
