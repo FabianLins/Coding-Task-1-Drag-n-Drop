@@ -40,8 +40,8 @@ function App() {
 
   const dragItem = (event: any) => {
     if (redSquare.current && elements.current && content.current && blueCircle.current && redCircle.current && blueSquare.current) {
-      const xPos: number = event.clientX - offSetX * 2
-      const yPos: number = event.clientY - offSetY * 2
+      const xPos: number = event.clientX - offSetX
+      const yPos: number = event.clientY - offSetY
       const squareWidth: number = redSquare.current.offsetWidth
       const parentLeft: number = elements.current.offsetLeft
       const parentTop: number = elements.current.offsetTop - (content.current as HTMLElement).offsetTop
